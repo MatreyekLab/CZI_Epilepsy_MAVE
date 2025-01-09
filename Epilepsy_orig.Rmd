@@ -1,0 +1,88 @@
+---
+title: "Epilepsy"
+author: "Kenneth Matreyek"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+```{r}
+
+rm(list = ls())
+library(tidyverse)
+library(googlesheets4)
+
+```
+
+
+```{r}
+
+gtr <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "GTR")
+
+gtr_annotated <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "GTR_summary")
+
+gtr_table <- data.frame(table(gtr$Gene))
+colnames(gtr_table) <- c("Gene","Newest_count")
+
+gtr_combined <- merge(gtr_table, gtr_annotated, by = "Gene", all = T)
+  
+write.csv(file = "gtr_combined.csv", gtr_combined)
+
+```
+
+```{r}
+
+newest <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "Newest")
+
+newest$gene <- ""
+
+for(x in 1:nrow(newest)){
+  newest$gene[x] <- strsplit(newest$Gene[x]," ")[[1]][1]
+}
+
+newest2 <- newest %>% select(-Index, -Gene, -Prev_index, -Count)
+
+action <- newest2 %>% filter(!is.na(Purchased))
+
+gtr <-data.frame("gene" = action$gene, "gtr" = 1)
+
+```
+
+
+```{r Monarch}
+
+monarch <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "Monarch")
+
+monarch2 <- merge(monarch, newest2, by = "gene", all = T)
+
+# https://github.com/bahlolab/Genes4Epilepsy
+g4e <- read.table(file = "Genes4Epilepsy_EpilepsyGenes_v2024-09.tsv", sep = "\t", header = T)
+colnames(g4e)[2] <- "gene"
+
+g4e2 <- merge(g4e, monarch2, by = "gene", all = T) %>% select(-HGNC_ID, -Ensemble_ID)
+
+not_cytoplasmic_nuclear <- g4e2 %>% filter(!(Location %in% c("Cytoplasm","Cytoplasmic","Mitochondrial","Mitohondrial","Cyto/Mito","Cytoplasmic?","Golgi-TM","Mito-Mem","Lysosome","Nucleus","Nuc/Cyto"))) %>% arrange(desc(New_count))
+
+unknown_loc <- g4e2 %>% filter(!(Location %in% c("Cytoplasm","Cytoplasmic","Mitochondrial","Mitohondrial","Cyto/Mito","Cytoplasmic?","Golgi-TM","Mito-Mem","Lysosome","Nucleus","Nuc/Cyto","Transmembrane"))) %>% arrange(desc(New_count))
+```
+
+
+
+```{r}
+
+emma <- read.csv(file = "ASDCrossOver.csv", header = T)
+
+sfari <- data.frame("gene" = emma$Gene..SFARI., "sfari" = 1) %>% filter(gene != "")
+epilepsy <- data.frame("gene" = emma$Gene..CZI., "epilepsy" = 1) %>% filter(gene != "")
+
+combined <- merge(merge(gtr, sfari, by = "gene", all = T), epilepsy, by = "gene", all = T)
+
+gtr_epi <- combined %>% filter(!is.na(gtr) & !is.na(epilepsy))
+
+gtr_not_epi <- combined %>% filter(!is.na(gtr) & is.na(epilepsy))
+
+epi_not_gtr <- combined %>% filter(!is.na(epilepsy) & is.na(gtr))
+
+```
+
+

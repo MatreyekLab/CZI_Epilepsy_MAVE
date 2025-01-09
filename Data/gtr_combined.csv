@@ -1,0 +1,570 @@
+"","Gene","Newest_count","Index","Count","Name","Disease","Size","Structure","Location","Channelopathy","...10","Uniprot"
+"1","AARS1 (16q22.1)",3,1,3,NA,NA,NA,NA,NA,NA,NA,NA
+"2","ABAT (16p13.2)",5,2,2,NA,NA,NA,NA,NA,NA,NA,NA
+"3","ABCD1 (Xq28)",1,3,1,NA,NA,NA,NA,NA,NA,NA,NA
+"4","ACO2 (22q13.2)",1,4,1,NA,NA,NA,NA,NA,NA,NA,NA
+"5","ACTB (7p22.1)",2,5,2,NA,NA,NA,NA,NA,NA,NA,NA
+"6","ACTG1 (17q25.3)",1,6,1,NA,NA,NA,NA,NA,NA,NA,NA
+"7","ACTL6B (7q22.1)",2,7,2,NA,NA,NA,NA,NA,NA,NA,NA
+"8","ACY1 (3p21.2)",2,8,2,NA,NA,NA,NA,NA,NA,NA,NA
+"9","ADAM22 (7q21.12)",2,9,2,NA,NA,NA,NA,NA,NA,NA,NA
+"10","ADAR (1q21.3)",1,10,1,NA,NA,NA,NA,NA,NA,NA,NA
+"11","ADARB1 (21q22.3)",3,11,3,NA,NA,NA,NA,NA,NA,NA,NA
+"12","ADGRG1 (16q21)",5,12,3,NA,NA,NA,NA,NA,NA,NA,NA
+"13","ADGRV1 (5q14.3)",3,13,1,NA,NA,NA,NA,NA,NA,NA,NA
+"14","ADSL (22q13.1)",7,14,4,NA,NA,NA,NA,NA,NA,NA,NA
+"15","AFF2 (Xq28)",1,15,1,NA,NA,NA,NA,NA,NA,NA,NA
+"16","AFF3 (2q11.2)",1,16,1,NA,NA,NA,NA,NA,NA,NA,NA
+"17","AFG2A (4q28.1)",5,17,3,NA,NA,NA,NA,NA,NA,NA,NA
+"18","AFG3L2 (18p11.21)",2,18,2,NA,NA,NA,NA,NA,NA,NA,NA
+"19","AGA (4q34.3)",1,19,1,NA,NA,NA,NA,NA,NA,NA,NA
+"20","AIFM1 (Xq26.1)",2,20,2,NA,NA,NA,NA,NA,NA,NA,NA
+"21","AIMP1 (4q24)",1,21,1,NA,NA,NA,NA,NA,NA,NA,NA
+"22","AKT1 (14q32.33)",1,22,1,NA,NA,NA,NA,NA,NA,NA,NA
+"23","AKT2 (19q13.2)",1,23,1,NA,NA,NA,NA,NA,NA,NA,NA
+"24","AKT3 (1q43-44)",2,24,2,NA,NA,NA,NA,NA,NA,NA,NA
+"25","ALDH3A2 (17p11.2)",2,25,2,NA,NA,NA,NA,NA,NA,NA,NA
+"26","ALDH5A1 (6p22.3)",5,26,3,NA,NA,NA,NA,NA,NA,NA,NA
+"27","ALDH7A1 (5q23.2)",10,27,6,"Alpha-aminoadipic semialdehyde dehydrogenase",NA,539,NA,"Cyto/Mito","no",NA,"https://www.uniprot.org/uniprotkb/P49419/entry"
+"28","ALG13 (Xq23)",8,28,5,"UDP-N-acetylglucosamine transferase subunit ALG13",NA,1137,NA,"Cytoplasmic","no",NA,"https://www.uniprot.org/uniprotkb/Q9NP73/entry"
+"29","ALG9 (11q23.1)",3,29,1,NA,NA,NA,NA,NA,NA,NA,NA
+"30","ALPL (1p36.12)",3,30,1,NA,NA,NA,NA,NA,NA,NA,NA
+"31","AMACR (5p13.2)",1,31,1,NA,NA,NA,NA,NA,NA,NA,NA
+"32","AMT (3p21.31)",6,32,3,NA,NA,NA,NA,NA,NA,NA,NA
+"33","ANKRD11 (16q24.3)",3,33,1,NA,NA,NA,NA,NA,NA,NA,NA
+"34","AP2M1 (3q27.1)",1,34,1,NA,NA,NA,NA,NA,NA,NA,NA
+"35","AP3B2 (15q25.2)",4,35,3,NA,NA,NA,NA,NA,NA,NA,NA
+"36","AP4B1 (1p13.2)",1,36,1,NA,NA,NA,NA,NA,NA,NA,NA
+"37","AP4E1 (15q21.2)",1,37,1,NA,NA,NA,NA,NA,NA,NA,NA
+"38","AP4M1 (7q22.1)",1,38,1,NA,NA,NA,NA,NA,NA,NA,NA
+"39","AP4S1 (14q12)",1,39,1,NA,NA,NA,NA,NA,NA,NA,NA
+"40","ARFGEF2 (20q13.13)",7,40,6,"Brefeldin A-inhibited guanine nucleotide-exchange protein 2",NA,1785,NA,"Cytoplasm","no",NA,"https://www.uniprot.org/uniprotkb/Q9Y6D5/entry"
+"41","ARG1 (6q23.2)",1,41,1,NA,NA,NA,NA,NA,NA,NA,NA
+"42","ARHGEF15 (17p13.1)",2,42,2,NA,NA,NA,NA,NA,NA,NA,NA
+"43","ARHGEF9 (Xq11.1)",9,43,6,"Rho guanine nucleotide exchange factor 9",NA,516,NA,"Cytoplasm","no",NA,"https://www.uniprot.org/uniprotkb/O43307/entry"
+"44","ARID1B (6q25.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"45","ARSA (22q13.33)",1,44,1,NA,NA,NA,NA,NA,NA,NA,NA
+"46","ARV1 (1q42.2)",4,45,4,"Protein ARV1",NA,271,NA,"Transmembrane","no",NA,"https://www.uniprot.org/uniprotkb/Q9H2C2/entry"
+"47","ARX (Xp21.3)",9,46,6,"Homeobox protein ARX (Transcription factor)",NA,562,"Completely disordered?","Nucleus","no",NA,"https://www.uniprot.org/uniprotkb/Q96QS3/entry"
+"48","ASAH1 (8p22)",6,47,3,NA,NA,NA,NA,NA,NA,NA,NA
+"49","ASNS (7q21.3)",4,48,4,"Asparagine synthetase [glutamine-hydrolyzing]",NA,561,NA,"Cytoplasmic","no",NA,"https://www.uniprot.org/uniprotkb/P08243/entry"
+"50","ASPA (17p13.2)",1,49,1,NA,NA,NA,NA,NA,NA,NA,NA
+"51","ASPM (1q31.3)",4,50,1,NA,NA,NA,NA,NA,NA,NA,NA
+"52","ASXL3 (18q12.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"53","ATN1 (12p13.31)",1,51,1,NA,NA,NA,NA,NA,NA,NA,NA
+"54","ATP13A2 (1p36.13)",2,52,1,NA,NA,NA,NA,NA,NA,NA,NA
+"55","ATP1A2 (1q23.2)",6,53,3,NA,NA,NA,NA,NA,NA,NA,NA
+"56","ATP1A3 (19q13.2)",7,54,4,"Sodium/potassium-transporting ATPase subunit alpha-3",NA,1013,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P13637/entry"
+"57","ATP2A2 (12q24.11)",2,55,1,NA,NA,NA,NA,NA,NA,NA,NA
+"58","ATP6AP2 (Xp11.4)",3,56,2,NA,NA,NA,NA,NA,NA,NA,NA
+"59","ATP6V0A2 (12q24.31)",3,57,2,NA,NA,NA,NA,NA,NA,NA,NA
+"60","ATP7A (Xq21.1)",1,58,1,NA,NA,NA,NA,NA,NA,NA,NA
+"61","ATRX (Xq21.1)",5,59,4,NA,NA,NA,NA,NA,NA,NA,NA
+"62","B3GALNT2 (1q42.3)",1,60,1,NA,NA,NA,NA,NA,NA,NA,NA
+"63","B4GAT1 (11q13.2)",1,61,1,NA,NA,NA,NA,NA,NA,NA,NA
+"64","BCKDK (16p11.2)",4,62,2,NA,NA,NA,NA,NA,NA,NA,NA
+"65","BCS1L (2q35)",1,63,1,NA,NA,NA,NA,NA,NA,NA,NA
+"66","BOLA3 (2p13.1)",1,64,1,NA,NA,NA,NA,NA,NA,NA,NA
+"67","BRAF (7q34)",1,65,1,NA,NA,NA,NA,NA,NA,NA,NA
+"68","BRAT1 (7p22.3)",7,66,5,"BRCA1-associated ATM activator 1",NA,821,"Heat-repeats","Nucleus","no",NA,"https://www.uniprot.org/uniprotkb/Q6PJG6/entry"
+"69","BTD (3p25.1)",2,67,1,NA,NA,NA,NA,NA,NA,NA,NA
+"70","C12orf57 (12p13.31)",2,68,2,NA,NA,NA,NA,NA,NA,NA,NA
+"71","CACNA1A (19p13.13)",10,69,6,"Voltage-dependent P/Q-type calcium channel subunit alpha-1A",NA,2506,NA,"Transmembrane","yes","J277","https://www.uniprot.org/uniprotkb/O00555/entry"
+"72","CACNA1E (1q25.3)",4,70,3,"Voltage-dependent R-type calcium channel subunit alpha-1E",NA,2313,"Gnarly!","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q15878/entry"
+"73","CACNA1H (16p13.3)",3,71,1,NA,NA,NA,NA,NA,NA,NA,NA
+"74","CACNA1I (22q13.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"75","CACNA2D1 (7q21.11)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"76","CACNA2D2 (3p21.31)",5,72,4,"Voltage-dependent calcium channel subunit alpha-2/delta-2",NA,1150,"MIDAS-like motif","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q9NY47/entry"
+"77","CACNB4 (2q23.3)",4,73,1,NA,NA,NA,NA,NA,NA,NA,NA
+"78","CAD (2p23.3)",4,74,4,NA,NA,NA,NA,NA,NA,NA,NA
+"79","CARS2 (13q34)",3,75,2,NA,NA,NA,NA,NA,NA,NA,NA
+"80","CASK (Xp11.4)",7,76,5,"Kappa-casein",NA,182,"Completely disordered?","Secreted","no",NA,"https://www.uniprot.org/uniprotkb/P07498/entry"
+"81","CASR (3q13.33-21.1)",5,77,1,NA,NA,NA,NA,NA,NA,NA,NA
+"82","CC2D1A (19p13.12)",1,78,1,NA,NA,NA,NA,NA,NA,NA,NA
+"83","CCM2 (7p13)",2,79,2,NA,NA,NA,NA,NA,NA,NA,NA
+"84","CCND2 (12p13.32)",1,80,1,NA,NA,NA,NA,NA,NA,NA,NA
+"85","CDK19 (6q21)",2,81,2,NA,NA,NA,NA,NA,NA,NA,NA
+"86","CDKL5 (Xp22.13)",10,82,7,"Cyclin-dependent kinase-like 5",NA,960,NA,"Nucleus","no",NA,"https://www.uniprot.org/uniprotkb/O76039/entry"
+"87","CENPJ (13q12.12-12.13)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"88","CERS1 (19p13.11)",1,83,1,NA,NA,NA,NA,NA,NA,NA,NA
+"89","CERT1 (5q13.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"90","CHD2 (15q26.1)",9,84,6,"Chromodomain-helicase-DNA-binding protein 2",NA,1828,"Half disordered?","Nucleus","no",NA,"https://www.uniprot.org/uniprotkb/O14647/entry"
+"91","CHRNA2 (8p21.2)",8,85,4,"Neuronal acetylcholine receptor subunit alpha-2",NA,529,"Ring of beta sheet ringlets","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q15822/entry"
+"92","CHRNA4 (20q13.33)",8,86,4,"Neuronal acetylcholine receptor subunit alpha-4",NA,627,"Super gnarly","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P43681/entry"
+"93","CHRNA7 (15q13.3)",3,87,1,NA,NA,NA,NA,NA,NA,NA,NA
+"94","CHRNB2 (1q21.3)",8,88,4,"Neuronal acetylcholine receptor subunit beta-2",NA,502,"Makes pore","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P17787/entry"
+"95","CLCN2 (3q27.1)",1,89,1,NA,NA,NA,NA,NA,NA,NA,NA
+"96","CLCN4 (Xp22.2)",6,90,5,"H(+)/Cl(-) exchange transporter 4",NA,760,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P51793/entry"
+"97","CLN3 (16p12.1)",7,91,4,"Battenin",NA,438,"Ring of helices","Transmembrane","kinda",NA,"https://www.uniprot.org/uniprotkb/Q13286/entry"
+"98","CLN5 (13q22.3)",7,92,4,"Bis(monoacylglycero)phosphate synthase CLN5",NA,358,NA,"Transmembrane","kinda",NA,"https://www.uniprot.org/uniprotkb/O75503/entry"
+"99","CLN6 (15q23)",7,93,4,"Ceroid-lipofuscinosis neuronal protein 6",NA,311,"Ring of helices","Transmembrane","kinda",NA,"https://www.uniprot.org/uniprotkb/Q9NWW5/entry"
+"100","CLN8 (8p23.3)",6,94,3,"Protein CLN8",NA,286,"Ring of helices","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q9UBY8/entry"
+"101","CNKSR2 (Xp22.12)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"102","CNPY3 (6p21.1)",2,95,2,NA,NA,NA,NA,NA,NA,NA,NA
+"103","CNTNAP2 (7q35-36.1)",6,96,4,"Contactin-associated protein-like 2",NA,1331,"Laminin G-like","Transmembrane","no",NA,"https://www.uniprot.org/uniprotkb/Q9UHC6/entry"
+"104","COA8 (14q32.33)",2,97,2,NA,NA,NA,NA,NA,NA,NA,NA
+"105","COG7 (16p12.2)",1,98,1,NA,NA,NA,NA,NA,NA,NA,NA
+"106","COG8 (16q22.1)",1,99,1,NA,NA,NA,NA,NA,NA,NA,NA
+"107","COL18A1 (21q22.3)",1,100,1,NA,NA,NA,NA,NA,NA,NA,NA
+"108","COL4A1 (13q34)",3,101,2,NA,NA,NA,NA,NA,NA,NA,NA
+"109","COQ2 (4q21.23)",1,102,1,NA,NA,NA,NA,NA,NA,NA,NA
+"110","COQ4 (9q34.11)",1,103,1,NA,NA,NA,NA,NA,NA,NA,NA
+"111","COQ6 (14q24.3)",1,104,1,NA,NA,NA,NA,NA,NA,NA,NA
+"112","COQ8A (1q42.13)",1,105,1,NA,NA,NA,NA,NA,NA,NA,NA
+"113","COQ9 (16q21)",1,106,1,NA,NA,NA,NA,NA,NA,NA,NA
+"114","COX10 (17p12)",1,107,1,NA,NA,NA,NA,NA,NA,NA,NA
+"115","COX15 (10q24.2)",2,108,2,NA,NA,NA,NA,NA,NA,NA,NA
+"116","COX6B1 (19q13.12)",1,109,1,NA,NA,NA,NA,NA,NA,NA,NA
+"117","CPA6 (8q13.2)",5,110,2,NA,NA,NA,NA,NA,NA,NA,NA
+"118","CPLX1 (4p16.3)",2,111,2,NA,NA,NA,NA,NA,NA,NA,NA
+"119","CPT2 (1p32.3)",2,112,1,NA,NA,NA,NA,NA,NA,NA,NA
+"120","CRH (8q13.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"121","CSF1R (5q32)",2,113,2,NA,NA,NA,NA,NA,NA,NA,NA
+"122","CSTB (21q22.3)",7,114,4,"Cytostatin-B",NA,98,NA,"Cytoplasm","no",NA,"https://www.uniprot.org/uniprotkb/P04080/entry"
+"123","CTC1 (17p13.1)",1,115,1,NA,NA,NA,NA,NA,NA,NA,NA
+"124","CTNNB1 (3p22.1)",2,116,2,NA,NA,NA,NA,NA,NA,NA,NA
+"125","CTSD (11p15.5)",7,117,4,"Cathepsin D",NA,412,NA,"Secreted","no",NA,"https://www.uniprot.org/uniprotkb/P07339/entry"
+"126","CTSF (11q13.2)",5,118,3,"Cathepsin F",NA,484,NA,"Lysosome","no",NA,"https://www.uniprot.org/uniprotkb/Q9UBX1/entry"
+"127","CUL4B (Xq24)",3,119,2,NA,NA,NA,NA,NA,NA,NA,NA
+"128","CUX2 (12q24.11-24.12)",2,120,2,NA,NA,NA,NA,NA,NA,NA,NA
+"129","CYFIP2 (5q33.3)",2,121,2,NA,NA,NA,NA,NA,NA,NA,NA
+"130","CYP27A1 (2q35)",3,122,1,NA,NA,NA,NA,NA,NA,NA,NA
+"131","D2HGDH (2q37.3)",2,123,2,NA,NA,NA,NA,NA,NA,NA,NA
+"132","DALRD3 (3p21.31)",2,124,2,NA,NA,NA,NA,NA,NA,NA,NA
+"133","DARS1 (2q21.3)",1,125,1,NA,NA,NA,NA,NA,NA,NA,NA
+"134","DARS2 (1q25.1)",1,126,1,NA,NA,NA,NA,NA,NA,NA,NA
+"135","DCX (Xq23)",7,127,4,"Neuronal migration protein doublecortin",NA,365,NA,"Cytoplasm","no",NA,"https://www.uniprot.org/uniprotkb/O43602/entry"
+"136","DDC (7p12.2-12.1)",1,128,1,NA,NA,NA,NA,NA,NA,NA,NA
+"137","DDX3X (Xp11.4)",4,129,3,NA,NA,NA,NA,NA,NA,NA,NA
+"138","DEAF1 (11p15.5)",2,130,1,NA,NA,NA,NA,NA,NA,NA,NA
+"139","DENND5A (11p15.4)",3,131,3,NA,NA,NA,NA,NA,NA,NA,NA
+"140","DEPDC5 (22q12.2-12.3)",8,132,5,"GATOR1 complex protein DEPDC5",NA,1603,"DEP domain","Cytoplasm","no",NA,"https://www.uniprot.org/uniprotkb/O75140/entry"
+"141","DHFR (5q14.1)",1,133,1,NA,NA,NA,NA,NA,NA,NA,NA
+"142","DHFR2 (3q11.2)",1,134,1,NA,NA,NA,NA,NA,NA,NA,NA
+"143","DIAPH1 (5q31.3)",1,135,1,NA,NA,NA,NA,NA,NA,NA,NA
+"144","DIP2B (12q13.12)",1,136,1,NA,NA,NA,NA,NA,NA,NA,NA
+"145","DLD (7q31.1)",1,137,1,NA,NA,NA,NA,NA,NA,NA,NA
+"146","DMXL2 (15q21.2)",3,138,3,NA,NA,NA,NA,NA,NA,NA,NA
+"147","DNAJC5 (20q13.33)",6,139,4,NA,NA,NA,NA,NA,NA,NA,NA
+"148","DNM1 (9q34.11)",8,140,6,"Dynamin-1",NA,864,"Ridiculous ring","Cytoplasmic","no",NA,"https://www.uniprot.org/uniprotkb/Q05193/entry"
+"149","DNM1L (12p11.21)",1,141,1,NA,NA,NA,NA,NA,NA,NA,NA
+"150","DOCK7 (1p31.3)",6,142,5,"Dedicator of cytokinesis protein 7",NA,2140,"DOCK domain","Cytoplasmic","no",NA,"https://www.uniprot.org/uniprotkb/Q96N67/entry"
+"151","DPYD (1p21.3)",2,143,1,NA,NA,NA,NA,NA,NA,NA,NA
+"152","DPYS (8q22.3)",1,144,1,NA,NA,NA,NA,NA,NA,NA,NA
+"153","DYNC1H1 (14q32.31)",6,145,3,NA,NA,NA,NA,NA,NA,NA,NA
+"154","DYRK1A (21q22.13)",8,146,6,"Dual specificity tyrosine-phosphorylation-regulated kinase",NA,763,NA,"Nucleus","no",NA,"https://www.uniprot.org/uniprotkb/Q13627/entry"
+"155","EARS2 (16p12.2)",2,147,2,NA,NA,NA,NA,NA,NA,NA,NA
+"156","ECHS1 (10q26.3)",1,148,1,NA,NA,NA,NA,NA,NA,NA,NA
+"157","ECM1 (1q21.2)",1,149,1,NA,NA,NA,NA,NA,NA,NA,NA
+"158","EEF1A2 (20q13.33)",8,150,6,"Elongation factor 1-alpha 2",NA,463,"Beta sheets","Nucleus????","no",NA,"https://www.uniprot.org/uniprotkb/Q05639/entry"
+"159","EFHC1 (6p12.2)",6,151,3,NA,NA,NA,NA,NA,NA,NA,NA
+"160","EHMT1 (9q34.3)",4,152,4,"Histone-lysine N-methyltransferase EHMT1",NA,1298,NA,"Nucleus","no",NA,"https://www.uniprot.org/uniprotkb/Q9H9B1/entry"
+"161","EIF2AK2 (2p22.2)",1,153,1,NA,NA,NA,NA,NA,NA,NA,NA
+"162","EIF2B1 (12q24.31)",1,154,1,NA,NA,NA,NA,NA,NA,NA,NA
+"163","EIF2B2 (14q24.3)",1,155,1,NA,NA,NA,NA,NA,NA,NA,NA
+"164","EIF2B3 (1p34.1)",1,156,1,NA,NA,NA,NA,NA,NA,NA,NA
+"165","EIF2B4 (2p23.3)",1,157,1,NA,NA,NA,NA,NA,NA,NA,NA
+"166","EIF2B5 (3q27.1)",1,158,1,NA,NA,NA,NA,NA,NA,NA,NA
+"167","EMX2 (10q26.11)",2,159,1,NA,NA,NA,NA,NA,NA,NA,NA
+"168","EPM2A (6q24.3)",8,160,4,"Laforin",NA,331,NA,"Cytoplasm","no",NA,"https://www.uniprot.org/uniprotkb/O95278/entry"
+"169","ETFDH (4q32.1)",1,161,1,NA,NA,NA,NA,NA,NA,NA,NA
+"170","ETHE1 (19q13.31)",4,162,4,NA,NA,NA,NA,NA,NA,NA,NA
+"171","FA2H (16q23.1)",1,163,1,NA,NA,NA,NA,NA,NA,NA,NA
+"172","FAR1 (11p15.3)",1,164,1,NA,NA,NA,NA,NA,NA,NA,NA
+"173","FARS2 (6p25.1)",4,165,4,NA,NA,NA,NA,NA,NA,NA,NA
+"174","FASTKD2 (2q33.3)",1,166,1,NA,NA,NA,NA,NA,NA,NA,NA
+"175","FBP1 (9q22.32)",1,167,1,NA,NA,NA,NA,NA,NA,NA,NA
+"176","FBXL4 (6q16.1-16.2)",1,168,1,NA,NA,NA,NA,NA,NA,NA,NA
+"177","FGD1 (Xp11.22)",2,169,1,NA,NA,NA,NA,NA,NA,NA,NA
+"178","FGF12 (3q28-29)",5,170,4,"Fibroblast growth factor 12",NA,243,"Interesting!","???","no",NA,"https://www.uniprot.org/uniprotkb/P61328/entry"
+"179","FGFR3 (4p16.3)",2,171,1,NA,NA,NA,NA,NA,NA,NA,NA
+"180","FH (1q43)",2,172,2,NA,NA,NA,NA,NA,NA,NA,NA
+"181","FKRP (19q13.32)",4,173,3,NA,NA,NA,NA,NA,NA,NA,NA
+"182","FKTN (9q31.2)",4,174,3,NA,NA,NA,NA,NA,NA,NA,NA
+"183","FLNA (Xq28)",7,175,5,"Filamin-A",NA,2647,"String of igG like beads","Cytoplasm","no",NA,"https://www.uniprot.org/uniprotkb/P21333/entry"
+"184","FMR1 (Xq27.3)",1,176,1,NA,NA,NA,NA,NA,NA,NA,NA
+"185","FOLR1 (11q13.4)",8,177,4,"Folate receptor alpha",NA,257,NA,"Transmembrane","no",NA,"https://www.uniprot.org/uniprotkb/P15328/entry"
+"186","FOXG1 (14q12)",7,178,4,NA,NA,NA,NA,NA,NA,NA,NA
+"187","FOXRED1 (11q24.2)",2,179,2,NA,NA,NA,NA,NA,NA,NA,NA
+"188","FRRS1L (9q31.3)",7,180,6,"DOMON domain-containing protein FRRS1L",NA,293,NA,"Transmembrane","no",NA,"https://www.uniprot.org/uniprotkb/Q9P0K9/entry"
+"189","GABBR2 (9q22.33)",5,181,5,"Gamma-aminobutyric acid type B receptor subunit 2",NA,941,"GPCR","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/O75899/entry"
+"190","GABRA1 (5q34)",11,182,7,"Gamma-aminobutyric acid receptor subunit alpha-1","Encephalopathy 19, AD",456,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P14867/entry"
+"191","GABRA2 (4p12)",2,183,2,"Gamma-aminobutyric acid receptor subunit alpha-2",NA,451,"AF only","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P47869/entry"
+"192","GABRA5 (15q12)",2,184,2,"Gamma-aminobutyric acid receptor subunit alpha-5",NA,462,"Lovely","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P31644/entry"
+"193","GABRB1 (4p12)",2,185,2,"Gamma-aminobutyric acid receptor subunit beta-1",NA,474,"AF only","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P18505/entry"
+"194","GABRB2 (5q34)",8,186,5,"Gamma-aminobutyric acid receptor subunit beta-2",NA,512,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P47870/entry"
+"195","GABRB3 (15q12)",9,187,6,"Gamma-aminobutyric acid receptor subunit beta-3",NA,473,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P28472/entry"
+"196","GABRD (1p36.33)",3,188,1,NA,NA,NA,NA,NA,NA,NA,NA
+"197","GABRG2 (5q34)",11,189,7,"Gamma-aminobutyric acid receptor subunit gamma-2","Seizures, AD",475,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P18507/entry"
+"198","GAD1 (2q31.1)",2,190,2,NA,NA,NA,NA,NA,NA,NA,NA
+"199","GALC (14q31.3)",1,191,1,NA,NA,NA,NA,NA,NA,NA,NA
+"200","GAMT (19p13.3)",9,192,4,NA,NA,NA,NA,NA,NA,NA,NA
+"201","GATM (15q21.1)",6,193,3,NA,NA,NA,NA,NA,NA,NA,NA
+"202","GCDH (19p13.13)",1,194,1,NA,NA,NA,NA,NA,NA,NA,NA
+"203","GCH1 (14q22.2)",2,195,1,NA,NA,NA,NA,NA,NA,NA,NA
+"204","GCK (7p13)",1,196,1,NA,NA,NA,NA,NA,NA,NA,NA
+"205","GCSH (16q23.2)",1,197,1,NA,NA,NA,NA,NA,NA,NA,NA
+"206","GFAP (17q21.31)",2,198,1,NA,NA,NA,NA,NA,NA,NA,NA
+"207","GFM1 (3q25.32)",2,199,2,NA,NA,NA,NA,NA,NA,NA,NA
+"208","GJC2 (1q42.13)",1,200,1,NA,NA,NA,NA,NA,NA,NA,NA
+"209","GLB1 (3p22.3)",1,201,1,NA,NA,NA,NA,NA,NA,NA,NA
+"210","GLDC (9p24.1)",7,202,4,NA,NA,NA,NA,NA,NA,NA,NA
+"211","GLRA1 (5q33.1)",2,203,2,NA,NA,NA,NA,NA,NA,NA,NA
+"212","GLS (2q32.2)",2,204,2,NA,NA,NA,NA,NA,NA,NA,NA
+"213","GLUL (1q25.3)",1,205,1,NA,NA,NA,NA,NA,NA,NA,NA
+"214","GMPPB (3p21.31)",1,206,1,NA,NA,NA,NA,NA,NA,NA,NA
+"215","GNAO1 (16q13)",6,207,5,"Guanine nucleotide-binding protein G(o) subunit alpha",NA,354,NA,"Transmembrane","no",NA,"https://www.uniprot.org/uniprotkb/P09471/entry"
+"216","GNAO1-AS1 (16q13)",1,208,1,NA,NA,NA,NA,NA,NA,NA,NA
+"217","GNB1 (1p36.33)",2,209,1,NA,NA,NA,NA,NA,NA,NA,NA
+"218","GNB5 (15q21.2)",2,210,2,NA,NA,NA,NA,NA,NA,NA,NA
+"219","GNE (9p13.3)",1,211,1,NA,NA,NA,NA,NA,NA,NA,NA
+"220","GOSR2 (17q21.32)",7,212,4,NA,NA,NA,NA,NA,NA,NA,NA
+"221","GOT2 (16q21)",2,213,2,NA,NA,NA,NA,NA,NA,NA,NA
+"222","GPAA1 (8q24.3)",1,214,1,NA,NA,NA,NA,NA,NA,NA,NA
+"223","GPC3 (Xq26.2)",3,215,2,NA,NA,NA,NA,NA,NA,NA,NA
+"224","GPHN (14q23.3-24.1)",4,216,4,"Gephyrin",NA,736,NA,"Not clear","no",NA,"https://www.uniprot.org/uniprotkb/Q9NQX3/entry"
+"225","GPSM2 (1p13.3)",1,217,1,NA,NA,NA,NA,NA,NA,NA,NA
+"226","GRIA3 (Xq25)",3,218,2,NA,NA,NA,NA,NA,NA,NA,NA
+"227","GRIK2 (6q16.3)",1,219,1,NA,NA,NA,NA,NA,NA,NA,NA
+"228","GRIN1 (9q34.3)",5,220,3,"Glutamate receptor ionotropic, NMDA 1",NA,938,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q05586/entry"
+"229","GRIN2A (16p13.2)",10,221,6,"Glutamate receptor ionotropic, NMDA 2A",NA,1464,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q12879/entry"
+"230","GRIN2B (12p13.1)",10,222,7,"Glutamate receptor ionotropic, NMDA 2B",NA,1484,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q13224/entry"
+"231","GRIN2D (19q13.33)",2,223,2,"Glutamate receptor ionotropic, NMDA 2D",NA,1336,"Gnarly","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/O15399/entry"
+"232","GRN (17q21.31)",2,224,1,NA,NA,NA,NA,NA,NA,NA,NA
+"233","GTPBP3 (19p13.11)",1,225,1,NA,NA,NA,NA,NA,NA,NA,NA
+"234","GUF1 (4p12)",1,226,1,NA,NA,NA,NA,NA,NA,NA,NA
+"235","GYS2 (12p12.1)",1,227,1,NA,NA,NA,NA,NA,NA,NA,NA
+"236","HACE1 (6q16.3)",1,228,1,NA,NA,NA,NA,NA,NA,NA,NA
+"237","HCFC1 (Xq28)",1,229,1,NA,NA,NA,NA,NA,NA,NA,NA
+"238","HCN1 (5p12)",8,230,5,"Potassium/sodium hyperpolarization-activated cyclic nucleotide-gated channel 1",NA,890,"Helices + globular","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/O60741/entry"
+"239","HCN4 (15q24.1)",3,231,1,NA,NA,NA,NA,NA,NA,NA,NA
+"240","HECW2 (2q32.3)",1,232,1,NA,NA,NA,NA,NA,NA,NA,NA
+"241","HEPACAM (11q24.2)",1,233,1,NA,NA,NA,NA,NA,NA,NA,NA
+"242","HIBCH (2q32.2)",2,234,2,NA,NA,NA,NA,NA,NA,NA,NA
+"243","HNRNPU (1q44)",9,235,6,"Heterogeneous nuclear ribonucleoprotein U",NA,825,"Half disordered?","Nuc/Cyto","no",NA,"https://www.uniprot.org/uniprotkb/Q00839/entry"
+"244","HPRT1 (Xq26.2-26.3)",2,236,1,NA,NA,NA,NA,NA,NA,NA,NA
+"245","HSD17B10 (Xp11.22)",3,237,2,NA,NA,NA,NA,NA,NA,NA,NA
+"246","HSPB1 (7q11.23)",1,238,1,NA,NA,NA,NA,NA,NA,NA,NA
+"247","HTRA1 (10q26.13)",1,239,1,NA,NA,NA,NA,NA,NA,NA,NA
+"248","HYCC1 (7p15.3)",1,240,1,NA,NA,NA,NA,NA,NA,NA,NA
+"249","IARS2 (1q41)",1,241,1,NA,NA,NA,NA,NA,NA,NA,NA
+"250","IBA57 (1q42.13)",2,242,2,NA,NA,NA,NA,NA,NA,NA,NA
+"251","IDH2 (15q26.1)",1,243,1,NA,NA,NA,NA,NA,NA,NA,NA
+"252","IER3IP1 (18q21.1)",2,244,2,NA,NA,NA,NA,NA,NA,NA,NA
+"253","IQSEC2 (Xp11.22)",5,245,3,NA,NA,NA,NA,NA,NA,NA,NA
+"254","ITPA (20p13)",6,246,5,"Inosine triphosphate pyrophosphatase",NA,194,NA,"Cytoplasm","no",NA,"https://www.uniprot.org/uniprotkb/Q9BY32/entry"
+"255","JMJD1C (10q21.3)",1,247,1,NA,NA,NA,NA,NA,NA,NA,NA
+"256","KANSL1 (17q21.31)",4,248,3,NA,NA,NA,NA,NA,NA,NA,NA
+"257","KANSL1-AS1 (17q21.31)",1,249,1,NA,NA,NA,NA,NA,NA,NA,NA
+"258","KATNB1 (16q21)",1,250,1,NA,NA,NA,NA,NA,NA,NA,NA
+"259","KCNA1 (12p13.32)",4,251,2,"Potassium voltage-gated channel subfamily A member 1",NA,495,"poor AF","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q09470/entry"
+"260","KCNA2 (1p13.3)",8,252,6,"Potassium voltage-gated channel subfamily A member 2",NA,499,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P16389/entry"
+"261","KCNB1 (20q13.13)",8,253,6,"Potassium voltage-gated channel subfamily B member 1",NA,858,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q14721/entry"
+"262","KCNC1 (11p15.1)",7,254,4,"Voltage-gated potassium channel KCNC1",NA,511,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P48547/entry"
+"263","KCNH1 (1q32.2)",4,255,3,"Potassium voltage-gated channel subfamily H member 1",NA,989,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/O95259/entry"
+"264","KCNH2 (7q36.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"265","KCNH5 (14q23.2)",2,256,2,"Potassium voltage-gated channel subfamily H member 5",NA,988,"Crazy","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q8NCM2/entry"
+"266","KCNJ10 (1q23.2)",7,257,4,"ATP-sensitive inward rectifier potassium channel 10",NA,379,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/P78508/entry"
+"267","KCNJ11 (11p15.1)",2,258,1,NA,NA,NA,NA,NA,NA,NA,NA
+"268","KCNMA1 (10q22.3)",8,259,4,"Calcium-activated potassium channel subunit alpha-1",NA,1236,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q12791/entry"
+"269","KCNQ2 (20q13.33)",11,260,7,"Potassium voltage-gated channel subfamily KQT member 2",NA,872,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/O43526/entry"
+"270","KCNQ3 (8q24.22)",10,261,6,"Potassium voltage-gated channel subfamily KQT member 3",NA,872,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/O43525/entry"
+"271","KCNQ5 (6q13)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"272","KCNT1 (9q34.3)",9,262,6,"Potassium channel subfamily T member 1",NA,1230,"Looks like channel","Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q5JUK3/entry"
+"273","KCNT2 (1q31.3)",2,263,2,"Potassium channel subfamily T member 2",NA,1135,NA,"Transmembrane","yes",NA,"https://www.uniprot.org/uniprotkb/Q6UVM3/entry"
+"274","KCTD17 (22q12.3)",1,264,1,NA,NA,NA,NA,NA,NA,NA,NA
+"275","KCTD7 (7q11.21)",7,265,3,NA,NA,NA,NA,NA,NA,NA,NA
+"276","KDM5C (Xp11.22)",4,266,3,NA,NA,NA,NA,NA,NA,NA,NA
+"277","KDM6A (Xp11.3)",3,267,3,NA,NA,NA,NA,NA,NA,NA,NA
+"278","KIF1A (2q37.3)",1,268,1,NA,NA,NA,NA,NA,NA,NA,NA
+"279","KIF2A (5q12.1)",1,269,1,NA,NA,NA,NA,NA,NA,NA,NA
+"280","KIF5C (2q23.1-23.2)",1,270,1,NA,NA,NA,NA,NA,NA,NA,NA
+"281","KIFBP (10q22.1)",3,271,2,NA,NA,NA,NA,NA,NA,NA,NA
+"282","KMT2D (12q13.12)",2,272,1,NA,NA,NA,NA,NA,NA,NA,NA
+"283","KRIT1 (7q21.2)",1,273,1,NA,NA,NA,NA,NA,NA,NA,NA
+"284","L2HGDH (14q21.3)",4,274,2,NA,NA,NA,NA,NA,NA,NA,NA
+"285","LAMA2 (6q22.33)",4,275,3,NA,NA,NA,NA,NA,NA,NA,NA
+"286","LARGE1 (22q12.3)",4,276,3,"Xylosyl- and glucuronyltransferase LARGE1",NA,756,NA,"Transmembrane","no",NA,"https://www.uniprot.org/uniprotkb/O95461/entry"
+"287","LBR (1q42.12)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"288","LGI1 (10q23.33)",8,277,4,NA,NA,NA,NA,NA,NA,NA,NA
+"289","LIAS (4p14)",5,278,2,NA,NA,NA,NA,NA,NA,NA,NA
+"290","LMNB1 (5q23.2)",1,279,1,NA,NA,NA,NA,NA,NA,NA,NA
+"291","LMNB2 (19p13.3)",4,280,2,NA,NA,NA,NA,NA,NA,NA,NA
+"292","LRPPRC (2p21)",2,281,2,NA,NA,NA,NA,NA,NA,NA,NA
+"293","MAGI2 (7q21.11)",6,282,4,NA,NA,NA,NA,NA,NA,NA,NA
+"294","MBD5 (2q23.1)",8,283,4,NA,NA,NA,NA,NA,NA,NA,NA
+"295","MCPH1 (8p23.1)",3,284,1,NA,NA,NA,NA,NA,NA,NA,NA
+"296","MDH1 (2p15)",2,285,2,NA,NA,NA,NA,NA,NA,NA,NA
+"297","MDH2 (7q11.23)",3,286,3,NA,NA,NA,NA,NA,NA,NA,NA
+"298","MECP2 (Xq28)",10,287,7,"Methyl-CpG-binding protein 2",NA,486,NA,"Nucleus","no",NA,"https://www.uniprot.org/uniprotkb/P51608/entry"
+"299","MED12 (Xq13.1)",1,288,1,NA,NA,NA,NA,NA,NA,NA,NA
+"300","MEF2C (5q14.3)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"301","MFSD8 (4q28.2)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"302","MICU1 (10q22.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"303","MLC1 (22q13.33)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"304","MMACHC (1p34.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"305","MOCS1 (6p21.2)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"306","MOCS2 (5q11.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"307","MRPL44 (2q36.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"308","MTFMT (15q22.31)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"309","MTHFR (1p36.22)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"310","MTO1 (6q13)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"311","MTOR (1p36.22)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"312","NACC1 (19p13.13)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"313","NALCN (13q32.3-33.1)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"314","NBEA (13q13.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"315","NDE1 (16p13.11)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"316","NDUFA1 (Xq24)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"317","NDUFA2 (5q31.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"318","NDUFAF2 (5q12.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"319","NDUFAF3 (3p21.31)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"320","NDUFAF5 (20p12.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"321","NDUFAF6 (8q22.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"322","NDUFS1 (2q33.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"323","NDUFS2 (1q23.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"324","NDUFS4 (5q11.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"325","NDUFS6 (5p15.33)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"326","NDUFS7 (19p13.3)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"327","NDUFS8 (11q13.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"328","NDUFV1 (11q13.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"329","NECAP1 (12p13.31)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"330","NEDD4L (18q21.31)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"331","NEU1 (6p21.33)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"332","NEUROD2 (17q12)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"333","NEXMIF (Xq13.3)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"334","NFU1 (2p13.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"335","NGLY1 (3p24.2)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"336","NHLRC1 (6p22.3)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"337","NIPBL (5p13.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"338","NOTCH3 (19p13.12)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"339","NPRL2 (3p21.31)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"340","NPRL3 (16p13.3)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"341","NR2F1 (5q15)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"342","NR4A2 (2q24.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"343","NRROS (3q29)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"344","NRXN1 (2p16.3)",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"345","NSF (17q21.31)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"346","NTRK2 (9q21.33)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"347","NUBPL (14q12)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"348","OCLN (5q13.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"349","OFD1 (Xp22.2)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"350","OPHN1 (Xq12)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"351","OTUD6B (8q21.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"352","P4HTM (3p21.31)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"353","PACS1 (11q13.1-13.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"354","PACS2 (14q32.33)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"355","PAFAH1B1 (17p13.3)",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"356","PAK3 (Xq23)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"357","PANK2 (20p13)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"358","PARS2 (1p32.3)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"359","PAX6 (11p13)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"360","PCBD1 (10q22.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"361","PCDH12 (5q31.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"362","PCDH19 (Xq22.1)",10,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"363","PDCD10 (3q26.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"364","PDHA1 (Xp22.12)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"365","PDHB (3p14.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"366","PDHX (11p13)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"367","PDP1 (8q22.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"368","PDSS2 (6q21)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"369","PEX7 (6q23.3)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"370","PGAP3 (17q12)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"371","PGK1 (Xq21.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"372","PHACTR1 (6p24.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"373","PHF6 (Xq26.2)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"374","PHGDH (1p12)",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"375","PIGA (Xp22.2)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"376","PIGB (15q21.3)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"377","PIGG (4p16.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"378","PIGK (1p31.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"379","PIGL (17p11.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"380","PIGM (1q23.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"381","PIGN (18q21.33)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"382","PIGO (9p13.3)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"383","PIGQ (16p13.3)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"384","PIGS (17q11.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"385","PIGT (20q13.12)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"386","PIGU (20q11.22)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"387","PIGV (1p36.11)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"388","PIGW (17q12)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"389","PIK3CA (3q26.32)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"390","PIK3R2 (19p13.11)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"391","PLA2G6 (22q13.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"392","PLCB1 (20p12.3)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"393","PLP1 (Xq22.2)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"394","PLPBP (8p11.23)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"395","PNKD (2q35)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"396","PNKP (19q13.33)",9,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"397","PNPLA8 (7q31.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"398","PNPO (17q21.32)",10,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"399","POLG (15q26.1)",9,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"400","POLR3A (10q22.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"401","POLR3B (12q23.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"402","POMGNT1 (1p34.1)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"403","POMGNT2 (3p22.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"404","POMK (8p11.21)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"405","POMT1 (9q34.13)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"406","POMT2 (14q24.3)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"407","PPP2R5D (6p21.1)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"408","PPP3CA (4q24)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"409","PPT1 (1p34.2)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"410","PQBP1 (Xp11.23)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"411","PRICKLE1 (12q12)",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"412","PRICKLE2 (3p14.1)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"413","PRIMA1 (14q32.12)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"414","PRKACA (19p13.12)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"415","PRKACB (1p31.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"416","PRODH (22q11.21)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"417","PRRT2 (16p11.2)",10,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"418","PSAP (10q22.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"419","PSAT1 (9q21.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"420","PSPH (7p11.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"421","PTEN (10q23.31)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"422","PTS (11q23.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"423","PURA (5q31.3)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"424","PYCR2 (1q42.12)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"425","QARS1 (3p21.31)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"426","QDPR (4p15.32)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"427","RAB18 (10p12.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"428","RAB39B (Xq28)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"429","RAB3GAP1 (2q21.3)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"430","RAB3GAP2 (1q41)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"431","RAI1 (17p11.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"432","RALA (7p14.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"433","RALGAPA1 (14q13.2)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"434","RANBP2 (2q13)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"435","RARS1 (5q34)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"436","RARS2 (6q15)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"437","RBFOX1 (16p13.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"438","RELN (7q22.1)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"439","RHEB (7q36.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"440","RHOBTB2 (8p21.3)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"441","RMND1 (6q25.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"442","RNASEH2A (19p13.13)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"443","RNASEH2B (13q14.3)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"444","RNASEH2C (11q13.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"445","RNASET2 (6q27)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"446","RNF13 (3q25.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"447","RNF216 (7p22.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"448","ROGDI (16p13.3)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"449","RORB (9q21.13)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"450","RPS6 (9p22.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"451","RRM2B (8q22.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"452","RTTN (18q22.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"453","SAMHD1 (20q11.23)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"454","SATB2 (2q33.1)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"455","SCARB2 (4q21.1)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"456","SCN1A (2q24.3)",11,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"457","SCN1B (19q13.11)",10,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"458","SCN2A (2q24.3)",11,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"459","SCN3A (2q24.3)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"460","SCN5A (3p22.2)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"461","SCN8A (12q13.13)",9,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"462","SCN9A (2q24.3)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"463","SCO1 (17p13.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"464","SCO2 (22q13.33)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"465","SDHAF1 (19q13.12)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"466","SERAC1 (6q25.3)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"467","SERPINI1 (3q26.1)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"468","SETBP1 (18q12.3)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"469","SETD1A (16p11.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"470","SETD2 (3p21.31)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"471","SGCE (7q21.3)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"472","SHH (7q36.3)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"473","SIK1 (21q22.3)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"474","SIX3 (2p21)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"475","SLC12A5 (20q13.12)",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"476","SLC13A5 (17p13.1)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"477","SLC16A1 (1p13.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"478","SLC19A3 (2q36.3)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"479","SLC1A2 (11p13)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"480","SLC1A4 (2p14)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"481","SLC25A1 (22q11.21)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"482","SLC25A12 (2q31.1)",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"483","SLC25A15 (13q14.11)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"484","SLC25A19 (17q25.1)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"485","SLC25A22 (11p15.5)",9,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"486","SLC2A1 (1p34.2)",10,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"487","SLC35A2 (Xp11.23)",9,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"488","SLC35A3 (1p21.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"489","SLC39A8 (4q24)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"490","SLC46A1 (17q11.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"491","SLC4A10 (2q24.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"492","SLC6A1 (3p25.3)",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"493","SLC6A8 (Xq28)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"494","SLC9A6 (Xq26.3)",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"495","SMARCA2 (9p24.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"496","SMC1A (Xp11.22)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"497","SMC3 (10q25.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"498","SMO (7q32.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"499","SMS (Xp22.11)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"500","SNAP25 (20p12.2)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"501","SNAP29 (22q11.21)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"502","SNORD118 (17p13.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"503","SNX27 (1q21.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"504","SOX10 (22q13.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"505","SPR (2p13.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"506","SPTAN1 (9q34.11)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"507","SRD5A3 (4q12)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"508","SRPX2 (Xq22.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"509","ST3GAL3 (1p34.1)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"510","ST3GAL5 (2p11.2)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"511","STIL (1p33)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"512","STRADA (17q23.3)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"513","STX1B (16p11.2)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"514","STXBP1 (9q34.11)",9,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"515","SUCLA2 (13q14.2)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"516","SUMF1 (3p26.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"517","SUOX (12q13.2)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"518","SYN1 (Xp11.3-11.23)",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"519","SYNGAP1 (6p21.32)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"520","SYNJ1 (21q22.11)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"521","SYP (Xp11.23)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"522","SZT2 (1p34.2)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"523","TBC1D24 (16p13.3)",10,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"524","TBCD (17q25.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"525","TBCE (1q42.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"526","TBCK (4q24)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"527","TBL1XR1 (3q26.32)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"528","TBX1 (22q11.21)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"529","TCF4 (18q21.2)",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"530","TFCP2 (12q13.12-13.13)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"531","TIMM50 (19q13.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"532","TPK1 (7q35)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"533","TPP1 (11p15.4)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"534","TRAK1 (3p22.1)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"535","TREX1 (3p21.31)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"536","TSC1 (9q34.13)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"537","TSC2 (16p13.3)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"538","TSEN54 (17q25.1)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"539","TSFM (12q14.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"540","TTC19 (17p12)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"541","TUBA1A (12q13.12)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"542","TUBA8 (22q11.21)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"543","TUBB (6p21.33)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"544","TUBB2A (6p25.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"545","TUBB2B (6p25.2)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"546","TUBB3 (16q24.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"547","TUBB4A (19p13.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"548","TWNK (10q24.31)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"549","UBA5 (3q22.1)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"550","UBE2A (Xq24)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"551","UBE3A (15q11.2)",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"552","UGDH (4p14)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"553","UGP2 (2p15)",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"554","UNC80 (2q34)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"555","USP7 (16p13.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"556","VARS1 (6p21.33)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"557","VLDLR (9p24.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"558","VPS13A (9q21.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"559","VPS13B (8q22.2)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"560","WDR26 (1q42.11-42.12)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"561","WDR37 (10p15.3)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"562","WDR45 (Xp11.23)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"563","WDR62 (19q13.12)",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"564","WWOX (16q23.1-23.2)",8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"565","YWHAG (7q11.23)",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"566","YY1 (14q32.2)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"567","ZDHHC9 (Xq26.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"568","ZEB2 (2q22.3)",9,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"569","ZFYVE26 (14q24.1)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA

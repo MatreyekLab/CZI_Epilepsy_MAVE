@@ -15,13 +15,350 @@ library(reshape2)
 
 ```
 
-```{r }
+```{r Look at L062 barcoding again}
+g1_barcoding <- read.table(file = "Barcoding/G1_trimmed_tally.csv", sep = ",", header = T) %>% mutate(freq = Count / sum(Count))
+g2_barcoding <- read.table(file = "Barcoding/G2_trimmed_tally.csv", sep = ",", header = T) %>% mutate(freq = Count / sum(Count))
+
+g1_linked <- read.table(file = "Barcoding/G1_linked_tally.csv", sep = ",", header = T) %>% mutate(freq = Count / sum(Count)) %>% filter(Count > 1)
+
+g1_linked$nchar <- nchar(g1_linked$Sequence)
+g1_linked$barcoded <- "unbarcoded"
+g1_linked[g1_linked$nchar == 20,"barcoded"] <- "barcoded"
+
+aez035_g1_histogram <- ggplot() + geom_histogram(data = g1_linked, aes(x = Count), bins = 30, fill = "grey80", color = "black") +
+  scale_x_log10() + #geom_vline(xintercept = c(7,300)) +
+  facet_grid(rows = vars(barcoded), scales = "free_y") +
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) + 
+  labs(title = "AEZ035_G1", x = "Number of reads") +
+  NULL; aez035_g1_histogram
+ggsave(file = "Barcoding/Plots/aez035_g1_histogram.pdf", aez035_g1_histogram, height = 3, width = 4)
+ggsave(file = "Barcoding/Plots/aez035_g1_histogram.png", aez035_g1_histogram, height = 3, width = 4)
+
+g1_linked_summary <- g1_linked %>% group_by(barcoded) %>% summarize(count_sum = sum(Count)) %>% mutate(freq = count_sum / sum(count_sum))
+
+g1_linked_barcoded <- g1_linked %>% filter(barcoded == "barcoded" & Count > 8)
+
+aez035_g1_filtered_histogram <- ggplot() + geom_histogram(data = g1_linked_barcoded, aes(x = Count), fill = "grey80", color = "black", bins = 20) +
+  scale_x_log10() + #geom_vline(xintercept = c(7,300)) +
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) + 
+  labs(title = "AEZ035_G1, likely true barcodes", x = "Number of reads") +
+  NULL; aez035_g1_filtered_histogram
+ggsave(file = "Barcoding/Plots/aez035_g1_filtered_histogram.pdf", aez035_g1_filtered_histogram, height = 3, width = 4)
+ggsave(file = "Barcoding/Plots/aez035_g1_filtered_histogram.png", aez035_g1_filtered_histogram, height = 3, width = 4)
+
+
+g2_linked <- read.table(file = "Barcoding/G2_linked_tally.csv", sep = ",", header = T) %>% mutate(freq = Count / sum(Count))
+
+g2_linked$nchar <- nchar(g2_linked$Sequence)
+g2_linked$barcoded <- "unbarcoded"
+g2_linked[g2_linked$nchar == 20,"barcoded"] <- "barcoded"
+
+aez035_g2_histogram <- ggplot() + geom_histogram(data = g2_linked, aes(x = Count), bins = 30, fill = "grey80", color = "black") +
+  scale_x_log10() + #geom_vline(xintercept = c(7,300)) +
+  facet_grid(rows = vars(barcoded), scales = "free_y") +
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) + 
+  labs(title = "AEZ035_g2", x = "Number of reads") +
+  NULL; aez035_g2_histogram
+ggsave(file = "Barcoding/Plots/aez035_g2_histogram.pdf", aez035_g2_histogram, height = 3, width = 4)
+ggsave(file = "Barcoding/Plots/aez035_g2_histogram.png", aez035_g2_histogram, height = 3, width = 4)
+
+g2_linked_summary <- g2_linked %>% group_by(barcoded) %>% summarize(count_sum = sum(Count)) %>% mutate(freq = count_sum / sum(count_sum))
+
+g2_linked_barcoded <- g2_linked %>% filter(barcoded == "barcoded" & Count > 8)
+
+aez035_g2_filtered_histogram <- ggplot() + geom_histogram(data = g2_linked_barcoded, aes(x = Count), fill = "grey80", color = "black", bins = 20) +
+  scale_x_log10() + #geom_vline(xintercept = c(7,300)) +
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) + 
+  labs(title = "AEZ035_g2, likely true barcodes", x = "Number of reads") +
+  NULL; aez035_g2_filtered_histogram
+ggsave(file = "Barcoding/Plots/aez035_g2_filtered_histogram.pdf", aez035_g2_filtered_histogram, height = 3, width = 4)
+ggsave(file = "Barcoding/Plots/aez035_g2_filtered_histogram.png", aez035_g2_filtered_histogram, height = 3, width = 4)
 
 
 
+## Now merge both datasets together so that we can see if any barcodes overlap
+
+g1g2_barcoding <- merge(g1_linked_barcoded, g2_linked_barcoded, by = "Sequence", all = T)
+
+g1g2_barcoding$type <- ""
+for(x in 1:nrow(g1g2_barcoding)){
+  if(!is.na(g1g2_barcoding$Count.x[x]) & is.na(g1g2_barcoding$Count.y[x])){g1g2_barcoding$type[x] <- "G1"}
+  if(is.na(g1g2_barcoding$Count.x[x]) & !is.na(g1g2_barcoding$Count.y[x])){g1g2_barcoding$type[x] <- "G2"}
+  if(!is.na(g1g2_barcoding$Count.x[x]) & !is.na(g1g2_barcoding$Count.y[x])){g1g2_barcoding$type[x] <- "Both"}
+}
+
+table(g1g2_barcoding$type)
+
+g1g2_barcoding_both <- g1g2_barcoding %>% filter(type == "Both")
+
+ggplot() + geom_point(data = g1g2_barcoding, aes(x = Count.x, y = Count.y)) +
+  scale_x_log10() + scale_y_log10()
 
 ```
 
 
+```{r Look at L062 barcoding again}
+ggplot() + geom_histogram(data = g1_barcoding, aes(x = Count)) +
+  scale_x_log10() + geom_vline(xintercept = c(7,300))
+
+g1_barcoding_filtered <- g1_barcoding %>% filter(Count > 7 & Count < 300)
+
+ggplot() + geom_histogram(data = g2_barcoding, aes(x = Count)) +
+  scale_x_log10() + geom_vline(xintercept = c(5,300))
+
+g2_barcoding_filtered <- g2_barcoding %>% filter(Count > 5 & Count < 300)
+
+g1g2_barcoding <- merge(g1_barcoding_filtered, g2_barcoding_filtered, by = "Sequence", all = T)
+
+g1g2_barcoding$type <- ""
+for(x in 1:nrow(g1g2_barcoding)){
+  if(!is.na(g1g2_barcoding$Count.x[x]) & is.na(g1g2_barcoding$Count.y[x])){g1g2_barcoding$type[x] <- "G1"}
+  if(is.na(g1g2_barcoding$Count.x[x]) & !is.na(g1g2_barcoding$Count.y[x])){g1g2_barcoding$type[x] <- "G2"}
+  if(!is.na(g1g2_barcoding$Count.x[x]) & !is.na(g1g2_barcoding$Count.y[x])){g1g2_barcoding$type[x] <- "Both"}
+}
+
+table(g1g2_barcoding$type)
+
+ggplot() + 
+  geom_point(data = g1g2_barcoding, aes(x = Count.x, y = Count.y )) +
+  scale_x_log10() + scale_y_log10()
+
+```
+
+
+
+
+
+```{r Look at L062 barcoding data}
+
+l062_psrs125gib <- read.csv(file = "Barcoding/L062_PSRS125_Gibson.csv")
+l062_psrs125gib_melt <- melt(l062_psrs125gib, id = "Header"); l062_psrs125gib_melt$count <- 0
+l062_psrs125gib_melt[l062_psrs125gib_melt$value >= 1, "count"] <- 1
+l062_psrs125gib_melt_sum <- l062_psrs125gib_melt %>% group_by(variable) %>% summarize(count = sum(count))
+
+paste("Roughly",
+  round(mean(l062_psrs125gib_melt_sum$count[1:4]) / (mean(l062_psrs125gib_melt_sum$count[1:4]) + mean(l062_psrs125gib_melt_sum$count[5:6]))*100,2),
+  "percent of plasmids were successfully barcoded"
+)
+
+l062_psrs125gib_barcodes <- read.csv(file = "Barcoding/L062_PSRS125_Gibson_barcodes.csv")
+l062_psrs125gib_barcodes_table <- l062_psrs125gib_barcodes %>% group_by(Variable.Region) %>% tally()
+
+paste("Roughly",
+  round(nrow(l062_psrs125gib_barcodes_table) / (mean(l062_psrs125gib_melt_sum$count[1:4])*2)*100,2),
+  "percent of the ~",
+  round(mean(l062_psrs125gib_melt_sum$count[1:4]),0),
+  "barcoded plasmid sequences were not repeats"
+)
+
+```
+
+```{r Look at L062 barcoding data}
+
+l062_psrs125lig <- read.csv(file = "Barcoding/L062_PSRS125_Ligation.csv")
+l062_psrs125lig_melt <- melt(l062_psrs125lig, id = "Header"); l062_psrs125lig_melt$count <- 0
+l062_psrs125lig_melt[l062_psrs125lig_melt$value >= 1, "count"] <- 1
+l062_psrs125lig_melt_sum <- l062_psrs125lig_melt %>% group_by(variable) %>% summarize(count = sum(count))
+
+paste("Roughly",
+  round(mean(l062_psrs125lig_melt_sum$count[1:4]) / (mean(l062_psrs125lig_melt_sum$count[1:4]) + mean(l062_psrs125lig_melt_sum$count[5:6]))*100,2),
+  "percent of plasmids were successfully barcoded"
+)
+
+l062_psrs125lig_barcodes <- read.csv(file = "Barcoding/L062_PSRS125_Ligation_barcodes.csv")
+l062_psrs125lig_barcodes_table <- l062_psrs125lig_barcodes %>% group_by(Variable.Region) %>% tally()
+
+paste("Roughly",
+  round(nrow(l062_psrs125lig_barcodes_table) / (mean(l062_psrs125lig_melt_sum$count[1:4])*2)*100,2),
+  "percent of the ~",
+  round(mean(l062_psrs125lig_melt_sum$count[1:4]),0),
+  "barcoded plasmid sequences were not repeats"
+)
+
+```
+
+
+```{r Look at L062 barcoding data}
+
+l062_250319 <- read.csv(file = "Barcoding/L062_250319.csv")
+l062_250319_melt <- melt(l062_250319, id = "Header"); l062_250319_melt$count <- 0
+l062_250319_melt[l062_250319_melt$value >= 1, "count"] <- 1
+l062_250319_melt_sum <- l062_250319_melt %>% group_by(variable) %>% summarize(count = sum(count))
+
+paste("Roughly",
+  round(mean(l062_250319_melt_sum$count[1:4]) / (mean(l062_250319_melt_sum$count[1:4]) + mean(l062_250319_melt_sum$count[5:6]))*100,2),
+  "percent of plasmids were successfully barcoded"
+)
+
+l062_250319_barcodes <- read.csv(file = "Barcoding/L062_250319_barcodes.csv")
+l062_250319_barcodes_table <- l062_250319_barcodes %>% group_by(Variable.Region) %>% tally()
+
+paste("Roughly",
+  round(nrow(l062_250319_barcodes_table) / (mean(l062_250319_melt_sum$count[1:4])*2)*100,2),
+  "percent of the ~",
+  round(mean(l062_250319_melt_sum$count[1:4]),0),
+  "barcoded plasmid sequences were not repeats"
+)
+
+```
+
+```{r Look at PSRS133 L062 barcoding data}
+
+l062_psrs133 <- read.csv(file = "Barcoding/PSRS133_L062_2ndGib.csv", header = T)[,1:7]
+l062_psrs133_melt <- melt(l062_psrs133, id = "Header"); l062_psrs133_melt$count <- 0
+l062_psrs133_melt[l062_psrs133_melt$value >= 1, "count"] <- 1
+l062_psrs133_melt_sum <- l062_psrs133_melt %>% group_by(variable) %>% summarize(count = sum(count))
+
+paste("Roughly",
+  round(mean(l062_psrs133_melt_sum$count[1:4]) / (mean(l062_psrs133_melt_sum$count[1:4]) + mean(l062_psrs133_melt_sum$count[5:6]))*100,2),
+  "percent of plasmids were successfully barcoded"
+)
+
+l062_psrs133_barcodes <- read.csv(file = "Barcoding/PSRS133_L062_2ndGib_barcodes.csv")
+l062_psrs133_barcodes_table <- l062_psrs133_barcodes %>% group_by(Variable.Region) %>% tally()
+
+paste("Roughly",
+  round(nrow(l062_psrs133_barcodes_table) / (mean(l062_psrs133_melt_sum$count[1:4])*2)*100,2),
+  "percent of the ~",
+  round(mean(l062_psrs133_melt_sum$count[1:4]),0),
+  "barcoded plasmid sequences were not repeats"
+)
+
+```
+
+
+
+
+```{r Import GTR data}
+
+gtr <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "GTR")
+
+gtr_annotated <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "GTR_summary")
+
+gtr_table <- data.frame(table(gtr$Gene)); colnames(gtr_table) <- c("Gene","Newest_count")
+gtr_combined <- merge(gtr_table, gtr_annotated, by = "Gene", all = T)
+write.csv(file = "Data/gtr_combined.csv", gtr_combined)
+
+```
+
+
+```{r Importing the newest compiled and manually annotated gene list}
+
+newest <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "Annotated")
+
+newest$gene <- ""
+for(x in 1:nrow(newest)){newest$gene[x] <- strsplit(newest$Gene[x]," ")[[1]][1]}
+newest2 <- newest %>% select(-Index, -Gene, -Prev_index, -Count)
+action <- newest2 %>% filter(!is.na(Purchased))
+gtr <-data.frame("gene" = action$gene, "gtr" = 1)
+
+```
+
+```{r Importing some curated Epilepsy gene lists from the literature}
+
+monarch <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "Monarch") %>% mutate("monarch" = 1)
+monarch2 <- merge(monarch[,c("gene","monarch")], newest2, by = "gene", all = T)
+
+# https://github.com/bahlolab/Genes4Epilepsy
+g4e <- read.table(file = "Data/Genes4Epilepsy_EpilepsyGenes_v2024-09.tsv", sep = "\t", header = T) %>% mutate("g4e" = 1)
+colnames(g4e)[2] <- "gene"
+g4e2 <- merge(g4e[,c("gene","g4e")], monarch2, by = "gene", all = T) #%>% select(-HGNC_ID, -Ensemble_ID)
+
+## Chi et al list
+chi <- read.table(file = "2024_Chi_Kiskinis_SciRep/Final_list.csv", sep = ",", header = T) %>% mutate("chi" = 1)
+chi2 <- merge(chi[,c("gene","chi")], g4e2, by = "gene", all = T) #%>% select(-HGNC_ID, -Ensemble_ID)
+
+## Comparing to Emma's list
+emma <- read.csv(file = "Schaffer_lab_info/ASDCrossOver.csv", header = T)
+
+emma_sfari <- data.frame("gene" = emma$Gene..SFARI., "sfari" = 1) %>% filter(gene != "")
+emma_epilepsy <- data.frame("gene" = emma$Gene..CZI., "epilepsy" = 1) %>% filter(gene != "")
+colnames(emma_epilepsy)[2] <- "emma"
+emma_epilepsy2 <- merge(emma_epilepsy[,c("gene","emma")], chi2, by = "gene", all = T)
+
+combined <- emma_epilepsy2
+combined[is.na(combined$chi),"emma"] <- 0
+combined[is.na(combined$chi),"chi"] <- 0
+combined[is.na(combined$monarch),"monarch"] <- 0
+combined[is.na(combined$g4e),"g4e"] <- 0
+combined[is.na(combined$New_count),"New_count"] <- 0
+combined$gtr_2plus <- 0
+for(x in 1:nrow(combined)){
+  if(combined$New_count[x] > 1){combined$gtr_2plus[x] <- 1}
+}
+
+combined$gene_list_sum <- rowSums(combined[,c("emma","monarch","g4e","gtr_2plus","chi")])
+
+combined <- combined %>% arrange(desc(gene_list_sum), desc(New_count))
+
+combined2 <- combined %>% select(colnames(combined)[c(1,ncol(combined),2:(ncol(combined)-1))])
+
+
+majority_list <- combined2 %>% filter(gene_list_sum >= 4) %>% distinct() %>% arrange(desc(Purchased))
+obtaining <- combined2 %>% filter(Purchased >= 0) %>% distinct() %>% arrange(desc(Purchased))
+other_secretory <- combined2 %>% filter(Role == "Secretory") %>% distinct() %>% arrange(desc(Purchased))
+
+intended_set <- rbind(majority_list, obtaining, other_secretory) %>% distinct()
+intended_set2 <- apply(intended_set,2,as.character)
+
+write.csv(file = "Output/250110_intended_gene_list.csv", intended_set2, row.names = F)
+
+not_cytoplasmic_nuclear <- g4e2 %>% filter(!(Location %in% c("Cytoplasm","Cytoplasmic","Mitochondrial","Mitohondrial","Cyto/Mito","Cytoplasmic?","Golgi-TM","Mito-Mem","Lysosome","Nucleus","Nuc/Cyto"))) %>% arrange(desc(New_count))
+
+unknown_loc <- g4e2 %>% filter(!(Location %in% c("Cytoplasm","Cytoplasmic","Mitochondrial","Mitohondrial","Cyto/Mito","Cytoplasmic?","Golgi-TM","Mito-Mem","Lysosome","Nucleus","Nuc/Cyto","Transmembrane"))) %>% arrange(desc(New_count))
+```
+
+
+```{r}
+
+clinvar_kcnq2 <- read.delim(file = "ClinVar/KCNQ2.txt", sep = "\t") %>% mutate(gene = "KCNQ2")
+clinvar_kcnb1 <- read.delim(file = "ClinVar/KCNB1.txt", sep = "\t") %>% mutate(gene = "KCNB1")
+clinvar_cacna1i <- read.delim(file = "ClinVar/CACNA1I.txt", sep = "\t") %>% mutate(gene = "CACNA1I")
+clinvar_grin1 <- read.delim(file = "ClinVar/GRIN1.txt", sep = "\t") %>% mutate(gene = "GRIN1")
+clinvar_cln8 <- read.delim(file = "ClinVar/CLN8.txt", sep = "\t") %>% mutate(gene = "CLN8")
+clinvar_scn1a <- read.delim(file = "ClinVar/SCN1A.txt", sep = "\t") %>% mutate(gene = "SCN1A")
+clinvar_scn1b <- read.delim(file = "ClinVar/SCN1B.txt", sep = "\t") %>% mutate(gene = "SCN1B")
+clinvar_clcn3 <- read.delim(file = "ClinVar/CLCN3.txt", sep = "\t") %>% mutate(gene = "CLCN3")
+clinvar_scn2a <- read.delim(file = "ClinVar/SCN2A.txt", sep = "\t") %>% mutate(gene = "SCN2A")
+clinvar_slc2a1 <- read.delim(file = "ClinVar/SLC2A1.txt", sep = "\t") %>% mutate(gene = "SLC2A1")
+clinvar_chrna2 <- read.delim(file = "ClinVar/CHRNA2.txt", sep = "\t") %>% mutate(gene = "CHRNA2")
+clinvar_chrnb2 <- read.delim(file = "ClinVar/CHRNB2.txt", sep = "\t") %>% mutate(gene = "CHRNB2")
+clinvar_slc9a6 <- read.delim(file = "ClinVar/SLC9A6.txt", sep = "\t") %>% mutate(gene = "SLC9A6")
+
+clinvar <- rbind(clinvar_kcnq2, clinvar_kcnb1, clinvar_cacna1i, clinvar_grin1, clinvar_cln8, clinvar_scn1a, clinvar_scn1b, clinvar_clcn3, clinvar_scn2a, clinvar_slc2a1, clinvar_chrna2, clinvar_chrnb2, clinvar_slc9a6)
+
+#temp_name <- clinvar_kcnq2$Name[1]
+#temp_name2 <- strsplit(temp_name," ")[[1]][2]
+#gsub(")","",substr(temp_name2,4,12))
+
+for(x in 1:nrow(clinvar)){
+  clinvar$variant_3aa[x] <- gsub(")","",substr(strsplit(clinvar$Name[x]," ")[[1]][2],4,12))
+}
+clinvar$pos <- as.numeric(gsub("[^0-9]","",clinvar$variant_3aa))
+
+clinvar$clinvar <- ""
+for(x in 1:nrow(clinvar)){
+  if(clinvar$Germline.classification[x] == "Benign"){clinvar$clinvar[x] <- "B/LB"}
+  if(clinvar$Germline.classification[x] == "Benign/Likely benign"){clinvar$clinvar[x] <- "B/LB"}
+  if(clinvar$Germline.classification[x] == "Likely benign"){clinvar$clinvar[x] <- "B/LB"}
+  if(clinvar$Germline.classification[x] == "Pathogenic"){clinvar$clinvar[x] <- "P/LP"}
+  if(clinvar$Germline.classification[x] == "Pathogenic/Likely pathogenic"){clinvar$clinvar[x] <- "P/LP"}
+  if(clinvar$Germline.classification[x] == "Likely pathogenic"){clinvar$clinvar[x] <- "P/LP"}
+  if(clinvar$Germline.classification[x] == "Uncertain significance"){clinvar$clinvar[x] <- "VUS"}
+  if(clinvar$Germline.classification[x] == "Conflicting classifications of pathogenicity"){clinvar$clinvar[x] <- "VUS"}
+  if(clinvar$Germline.classification[x] == "not provided"){clinvar$clinvar[x] <- "VUS"}
+  if(clinvar$Germline.classification[x] == "risk factor"){clinvar$clinvar[x] <- "VUS"}
+}
+
+clinvar_subset <- clinvar %>% filter(gene %in% c("CHRNA2", "CHRNB2", "SLC2A1", "KCNQ2", "GRIN1","SLC9A6"))
+
+ggplot() + 
+  geom_histogram(data = clinvar_subset, aes(x = pos, fill = clinvar), binwidth = 10, color = "black") +
+  facet_grid(rows = vars(gene), scales = "free") +
+  scale_x_continuous(breaks = seq(0,2000,100)) +
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) +
+  labs(x = NULL, y = "Count in 10aa window")
+
+```
 
 

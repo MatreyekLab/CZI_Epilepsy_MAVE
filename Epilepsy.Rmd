@@ -2,10 +2,10 @@
 title: "Epilepsy"
 author: "Kenneth Matreyek"
 date: "`r Sys.Date()`"
-output: html_document
+output: github_document
 ---
 
-```{r Load relevant packages}
+```{r Load relevant packages, error = F}
 
 rm(list = ls())
 library(tidyverse)
@@ -15,7 +15,177 @@ library(reshape2)
 
 ```
 
-```{r Look at L062 barcoding again}
+
+```{r Importing all of the relevant data, error=FALSE, warning=FALSE, message=FALSE}
+
+## Importing my existing datatable of manual curation (eg. Uniprot links, cell localization) I made in Google Sheets
+
+newest <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "Annotated") %>% select(Gene, Name, Size, Clinvar_missense, Location, Uniprot) %>% distinct()
+
+newest$gene <- ""
+for(x in 1:nrow(newest)){newest$gene[x] <- strsplit(newest$Gene[x]," ")[[1]][1]}
+
+## Import data from the NIH genetic testing registry
+gtr <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "GTR")
+
+gtr_table <- data.frame(table(gtr$Gene)); colnames(gtr_table) <- c("Gene","gtr_count")
+
+## Incorporate curated Epilepsy lists from the literature / scientific resource ecosystem
+monarch <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "Monarch") %>% mutate("monarch" = 1)
+
+# https://github.com/bahlolab/Genes4Epilepsy
+g4e <- read.table(file = "Data/Genes4Epilepsy_EpilepsyGenes_v2024-09.tsv", sep = "\t", header = T) %>% mutate("g4e" = 1)
+colnames(g4e)[2] <- "gene"
+
+# Chi et al list
+chi <- read.table(file = "Data/2024_Chi_Kiskinis_SciRep/Final_list.csv", sep = ",", header = T) %>% mutate("chi" = 1)
+
+# Importing Emma's list for later comparison
+emma <- read.csv(file = "Data/Schaffer_lab_info/ASDCrossOver.csv", header = T)
+
+emma_sfari <- data.frame("gene" = emma$Gene..SFARI., "sfari" = 1) %>% filter(gene != "")
+emma_epilepsy <- data.frame("gene" = emma$Gene..CZI., "epilepsy" = 1) %>% filter(gene != "")
+colnames(emma_epilepsy)[2] <- "emma"
+```
+
+
+```{r Importing some curated Epilepsy gene lists from the literature, error=FALSE, warning=FALSE, message=FALSE}
+combined1 <- merge(newest, gtr_table, by = "Gene", all = T)
+combined1$clinvar_ratio <- round(as.numeric(combined1$Clinvar_missense) / as.numeric(unlist(combined1$Size)),2)
+combined2 <- merge(combined1 %>% select(!Gene), chi, all = T)
+combined3 <- merge(combined2, monarch[,c("gene","monarch")], all = T)
+combined4 <- merge(combined3, g4e[,c("gene","g4e")], all = T)
+combined5 <- merge(combined4, emma_epilepsy, all = T) %>% distinct()
+
+combined5$gene_list_sum <- rowSums(combined5[,c("monarch","g4e","chi")], na.rm = T) #rowSums(combined[,c("emma","monarch","g4e","gtr_2plus","chi")])
+combined5 <- combined5 %>% arrange(desc(gene_list_sum), desc(gtr_count))
+
+combined5$inclusion <- (combined5$gene_list_sum == 3)|(combined5$gene_list_sum != 3  & combined5$gtr_count >= 7)
+
+combined5 <- combined5 %>% mutate(glsum_factor = factor(gene_list_sum))
+
+Inclusion_histogram_plot <- ggplot() + theme(panel.grid.minor = element_blank()) + 
+  geom_histogram(data = combined5, aes(x = gtr_count), binwidth = 1, fill = "grey90", color = "black") +
+  geom_histogram(data = combined5 %>% filter(inclusion == T), aes(x = gtr_count), binwidth = 1, fill = "red", color = "black") +
+  facet_grid(rows = vars(glsum_factor), scales = "free_y") +
+  labs(x = "Inclusion in testing panel", y = "Number of genes", title = "Red are meeting criteria") +
+  NULL; Inclusion_histogram_plot
+ggsave(file = "Plots/Inclusion_histogram_plot.pdf", Inclusion_histogram_plot, height = 4, width = 4)
+
+tested_not_unanimous <- combined5 %>% filter(combined5$gene_list_sum != 3 & combined5$gtr_count >= 7)
+unanimous_but_untested <- combined5 %>% filter(combined5$gene_list_sum == 3 & combined5$gtr_count < 2)
+
+```
+
+Next incorporate the list of constructs we had cloned or already made plans to clone
+```{r Incoporating our already cloned constructs, error=FALSE, warning=FALSE, message=FALSE}
+
+cloning <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "Epilepsy_cloning")[-1,]
+combined6 <- merge(combined5, cloning[,c("gene","Shuttled","Shuttle_count")], all.x = T) %>% distinct() %>% arrange(desc(gene_list_sum), desc(gtr_count))
+combined6[is.na(combined6$Shuttle_count),"Shuttle_count"] <- 0
+
+```
+
+## Incorporating the above data to hone in on the final set desired
+```{r Coming up with the intended list to potentially study, error=FALSE, warning=FALSE, message=FALSE}
+
+target_set <- combined6 %>% filter(inclusion == TRUE | Shuttle_count == 1) %>% arrange(desc(inclusion),desc(Shuttle_count), desc(clinvar_ratio))
+target_set[target_set$Size == "NULL","Size"] <- NA
+target_set$Size <- as.numeric(unlist(target_set$Size))
+
+target_set2 <- apply(target_set,2,as.character)
+
+Epilepsy_merged_output <- target_set  #[,c("gene","Name","Size","Clinvar_missense","Shuttled","Shuttle_count","Location","intended","emma","gene_list_sum","gtr_count","clinvar_ratio","Uniprot")] 
+
+ss4 <- gs4_create(
+  "Epilepsy_merged_output",
+  sheets = Epilepsy_merged_output
+)
+
+sheet_write(Epilepsy_merged_output, ss4, sheet = "Epilepsy_merged_output")
+
+write.csv(file = "Output/250601_target_gene_list.csv", target_set2, row.names = F)
+
+```
+
+## This next section is importing ClinVar data to figure out what regions of the proteins are best worth mutagenizing
+```{r ClinVar, error=FALSE, warning=FALSE, message=FALSE}
+
+clinvar_files = list.files(path="ClinVar_mis_non", pattern="*.txt", full.names=TRUE)
+clinvar_files_df <- data.frame("number" = seq(1,length(clinvar_files)), "index" = clinvar_files)
+
+clinvar <- read.delim(file = "ClinVar_mis_non/_Headers.tsv", sep = "\t") %>% mutate(gene = NA)
+
+for(x in 1:nrow(clinvar_files_df)){
+  temp_name <- strsplit(strsplit(clinvar_files_df$index[x], "/")[[1]][2],".txt")[[1]][1]
+  temp_frame <- read.delim(file = clinvar_files_df$index[x], sep = "\t") %>% mutate(gene = temp_name)
+  clinvar <- rbind(clinvar, temp_frame) %>% filter(!is.na(gene))
+}
+
+for(x in 1:nrow(clinvar)){
+  clinvar$variant_3aa[x] <- gsub(")","",substr(strsplit(clinvar$Name[x]," ")[[1]][2],4,12))
+}
+clinvar$pos <- as.numeric(gsub("[^0-9]","",clinvar$variant_3aa))
+
+clinvar$clinvar <- ""
+for(x in 1:nrow(clinvar)){
+  if(clinvar$Germline.classification[x] == "Benign"){clinvar$clinvar[x] <- "B/LB"}
+  if(clinvar$Germline.classification[x] == "Benign/Likely benign"){clinvar$clinvar[x] <- "B/LB"}
+  if(clinvar$Germline.classification[x] == "Likely benign"){clinvar$clinvar[x] <- "B/LB"}
+  if(clinvar$Germline.classification[x] == "Pathogenic"){clinvar$clinvar[x] <- "P/LP"}
+  if(clinvar$Germline.classification[x] == "Pathogenic/Likely pathogenic"){clinvar$clinvar[x] <- "P/LP"}
+  if(clinvar$Germline.classification[x] == "Likely pathogenic"){clinvar$clinvar[x] <- "P/LP"}
+  if(clinvar$Germline.classification[x] == "Uncertain significance"){clinvar$clinvar[x] <- "VUS"}
+  if(clinvar$Germline.classification[x] == "Conflicting classifications of pathogenicity"){clinvar$clinvar[x] <- "VUS"}
+  if(clinvar$Germline.classification[x] == "not provided"){clinvar$clinvar[x] <- "VUS"}
+  if(clinvar$Germline.classification[x] == "risk factor"){clinvar$clinvar[x] <- "VUS"}
+}
+
+clinvar <- clinvar %>% filter(clinvar %in% c("B/LB","P/LP","VUS"))
+
+small_prot_set <- target_set %>% filter(Size != "NA" & !is.na(Size) & Size <= 500)
+clinvar_small_prot <- clinvar %>% filter(gene %in% small_prot_set$gene)
+
+ClinVar_small_prot_histograms <- ggplot() + 
+  geom_histogram(data = clinvar_small_prot, aes(x = pos, fill = clinvar), binwidth = 10, color = "black") +
+  facet_grid(rows = vars(gene)) + #, scales = "free") +
+  scale_x_continuous(breaks = seq(0,500,100)) +
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) +
+  labs(x = NULL, y = "Count in 10aa window") +
+  NULL; ClinVar_small_prot_histograms
+ggsave(file = "Plots/ClinVar_small_prot_histograms.pdf", ClinVar_small_prot_histograms, height = length(unique(clinvar_small_prot$gene))*0.75, width = 6)
+
+
+medium_prot_set <- target_set %>% filter(Size != "NA" & !is.na(Size) & Size > 500 & Size <= 1000)
+clinvar_medium_prot <- clinvar %>% filter(gene %in% medium_prot_set$gene)
+
+ClinVar_medium_prot_histograms <- ggplot() + 
+  geom_histogram(data = clinvar_medium_prot, aes(x = pos, fill = clinvar), binwidth = 10, color = "black") +
+  facet_grid(rows = vars(gene)) + #, scales = "free") +
+  scale_x_continuous(breaks = seq(0,1000,100)) +
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) +
+  labs(x = NULL, y = "Count in 10aa window") +
+  NULL; ClinVar_medium_prot_histograms
+ggsave(file = "Plots/ClinVar_medium_prot_histograms.pdf", ClinVar_medium_prot_histograms, height = length(unique(clinvar_medium_prot$gene))*0.75, width = 9)
+
+
+large_prot_set <- target_set %>% filter(Size != "NA" & !is.na(Size) & Size > 1000)
+clinvar_large_prot <- clinvar %>% filter(gene %in% large_prot_set$gene)
+
+ClinVar_large_prot_histograms <- ggplot() + 
+  geom_histogram(data = clinvar_large_prot, aes(x = pos, fill = clinvar), binwidth = 10, color = "black") +
+  facet_grid(rows = vars(gene)) + #, scales = "free") +
+  scale_x_continuous(breaks = seq(0,2300,100)) +
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) +
+  labs(x = NULL, y = "Count in 10aa window") +
+  NULL; ClinVar_large_prot_histograms
+ggsave(file = "Plots/ClinVar_large_prot_histograms.pdf", ClinVar_large_prot_histograms, height = length(unique(clinvar_large_prot$gene))*0.75, width = 12)
+```
+
+
+## This section is our barcoding preliminary tests
+First up is looking at the barcode for the Gibsons using Amp-EZ miSeq 500 cycle sequencing
+```{r Look at L062 barcoding again, error=FALSE, warning=FALSE, message=FALSE}
 g1_barcoding <- read.table(file = "Barcoding/G1_trimmed_tally.csv", sep = ",", header = T) %>% mutate(freq = Count / sum(Count))
 g2_barcoding <- read.table(file = "Barcoding/G2_trimmed_tally.csv", sep = ",", header = T) %>% mutate(freq = Count / sum(Count))
 
@@ -74,8 +244,6 @@ aez035_g2_filtered_histogram <- ggplot() + geom_histogram(data = g2_linked_barco
 ggsave(file = "Barcoding/Plots/aez035_g2_filtered_histogram.pdf", aez035_g2_filtered_histogram, height = 3, width = 4)
 ggsave(file = "Barcoding/Plots/aez035_g2_filtered_histogram.png", aez035_g2_filtered_histogram, height = 3, width = 4)
 
-
-
 ## Now merge both datasets together so that we can see if any barcodes overlap
 
 g1g2_barcoding <- merge(g1_linked_barcoded, g2_linked_barcoded, by = "Sequence", all = T)
@@ -97,7 +265,7 @@ ggplot() + geom_point(data = g1g2_barcoding, aes(x = Count.x, y = Count.y)) +
 ```
 
 
-```{r Look at L062 barcoding again}
+```{r Look at L062 Gibson AmpEZ  barcoding again to see if there is a barcoding bias, error=FALSE, warning=FALSE, message=FALSE}
 ggplot() + geom_histogram(data = g1_barcoding, aes(x = Count)) +
   scale_x_log10() + geom_vline(xintercept = c(7,300))
 
@@ -129,7 +297,9 @@ ggplot() +
 
 
 
-```{r Look at L062 barcoding data}
+```{r Look at L062 barcoding data, error=FALSE, warning=FALSE, message=FALSE}
+
+## L062 Gibson data from PSRS125 
 
 l062_psrs125gib <- read.csv(file = "Barcoding/L062_PSRS125_Gibson.csv")
 l062_psrs125gib_melt <- melt(l062_psrs125gib, id = "Header"); l062_psrs125gib_melt$count <- 0
@@ -151,9 +321,7 @@ paste("Roughly",
   "barcoded plasmid sequences were not repeats"
 )
 
-```
-
-```{r Look at L062 barcoding data}
+## L062 oligo ligation barcoding data from PSRS125
 
 l062_psrs125lig <- read.csv(file = "Barcoding/L062_PSRS125_Ligation.csv")
 l062_psrs125lig_melt <- melt(l062_psrs125lig, id = "Header"); l062_psrs125lig_melt$count <- 0
@@ -175,10 +343,7 @@ paste("Roughly",
   "barcoded plasmid sequences were not repeats"
 )
 
-```
-
-
-```{r Look at L062 barcoding data}
+## L062 oligo ligation barcoding data from 250319
 
 l062_250319 <- read.csv(file = "Barcoding/L062_250319.csv")
 l062_250319_melt <- melt(l062_250319, id = "Header"); l062_250319_melt$count <- 0
@@ -200,9 +365,7 @@ paste("Roughly",
   "barcoded plasmid sequences were not repeats"
 )
 
-```
-
-```{r Look at PSRS133 L062 barcoding data}
+## L062 2nd Gibson barcoding data from PSRS133
 
 l062_psrs133 <- read.csv(file = "Barcoding/PSRS133_L062_2ndGib.csv", header = T)[,1:7]
 l062_psrs133_melt <- melt(l062_psrs133, id = "Header"); l062_psrs133_melt$count <- 0
@@ -225,140 +388,4 @@ paste("Roughly",
 )
 
 ```
-
-
-
-
-```{r Import GTR data}
-
-gtr <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "GTR")
-
-gtr_annotated <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "GTR_summary")
-
-gtr_table <- data.frame(table(gtr$Gene)); colnames(gtr_table) <- c("Gene","Newest_count")
-gtr_combined <- merge(gtr_table, gtr_annotated, by = "Gene", all = T)
-write.csv(file = "Data/gtr_combined.csv", gtr_combined)
-
-```
-
-
-```{r Importing the newest compiled and manually annotated gene list}
-
-newest <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "Annotated")
-
-newest$gene <- ""
-for(x in 1:nrow(newest)){newest$gene[x] <- strsplit(newest$Gene[x]," ")[[1]][1]}
-newest2 <- newest %>% select(-Index, -Gene, -Prev_index, -Count)
-action <- newest2 %>% filter(!is.na(Purchased))
-gtr <-data.frame("gene" = action$gene, "gtr" = 1)
-
-```
-
-```{r Importing some curated Epilepsy gene lists from the literature}
-
-monarch <- read_sheet("https://docs.google.com/spreadsheets/d/1ZbfJCrhLEpj9M-ujwAQ1vSALtS3y0prrNTXGIXgISSQ/edit?usp=sharing", sheet = "Monarch") %>% mutate("monarch" = 1)
-monarch2 <- merge(monarch[,c("gene","monarch")], newest2, by = "gene", all = T)
-
-# https://github.com/bahlolab/Genes4Epilepsy
-g4e <- read.table(file = "Data/Genes4Epilepsy_EpilepsyGenes_v2024-09.tsv", sep = "\t", header = T) %>% mutate("g4e" = 1)
-colnames(g4e)[2] <- "gene"
-g4e2 <- merge(g4e[,c("gene","g4e")], monarch2, by = "gene", all = T) #%>% select(-HGNC_ID, -Ensemble_ID)
-
-## Chi et al list
-chi <- read.table(file = "2024_Chi_Kiskinis_SciRep/Final_list.csv", sep = ",", header = T) %>% mutate("chi" = 1)
-chi2 <- merge(chi[,c("gene","chi")], g4e2, by = "gene", all = T) #%>% select(-HGNC_ID, -Ensemble_ID)
-
-## Comparing to Emma's list
-emma <- read.csv(file = "Schaffer_lab_info/ASDCrossOver.csv", header = T)
-
-emma_sfari <- data.frame("gene" = emma$Gene..SFARI., "sfari" = 1) %>% filter(gene != "")
-emma_epilepsy <- data.frame("gene" = emma$Gene..CZI., "epilepsy" = 1) %>% filter(gene != "")
-colnames(emma_epilepsy)[2] <- "emma"
-emma_epilepsy2 <- merge(emma_epilepsy[,c("gene","emma")], chi2, by = "gene", all = T)
-
-combined <- emma_epilepsy2
-combined[is.na(combined$chi),"emma"] <- 0
-combined[is.na(combined$chi),"chi"] <- 0
-combined[is.na(combined$monarch),"monarch"] <- 0
-combined[is.na(combined$g4e),"g4e"] <- 0
-combined[is.na(combined$New_count),"New_count"] <- 0
-combined$gtr_2plus <- 0
-for(x in 1:nrow(combined)){
-  if(combined$New_count[x] > 1){combined$gtr_2plus[x] <- 1}
-}
-
-combined$gene_list_sum <- rowSums(combined[,c("emma","monarch","g4e","gtr_2plus","chi")])
-
-combined <- combined %>% arrange(desc(gene_list_sum), desc(New_count))
-
-combined2 <- combined %>% select(colnames(combined)[c(1,ncol(combined),2:(ncol(combined)-1))])
-
-
-majority_list <- combined2 %>% filter(gene_list_sum >= 4) %>% distinct() %>% arrange(desc(Purchased))
-obtaining <- combined2 %>% filter(Purchased >= 0) %>% distinct() %>% arrange(desc(Purchased))
-other_secretory <- combined2 %>% filter(Role == "Secretory") %>% distinct() %>% arrange(desc(Purchased))
-
-intended_set <- rbind(majority_list, obtaining, other_secretory) %>% distinct()
-intended_set2 <- apply(intended_set,2,as.character)
-
-write.csv(file = "Output/250110_intended_gene_list.csv", intended_set2, row.names = F)
-
-not_cytoplasmic_nuclear <- g4e2 %>% filter(!(Location %in% c("Cytoplasm","Cytoplasmic","Mitochondrial","Mitohondrial","Cyto/Mito","Cytoplasmic?","Golgi-TM","Mito-Mem","Lysosome","Nucleus","Nuc/Cyto"))) %>% arrange(desc(New_count))
-
-unknown_loc <- g4e2 %>% filter(!(Location %in% c("Cytoplasm","Cytoplasmic","Mitochondrial","Mitohondrial","Cyto/Mito","Cytoplasmic?","Golgi-TM","Mito-Mem","Lysosome","Nucleus","Nuc/Cyto","Transmembrane"))) %>% arrange(desc(New_count))
-```
-
-
-```{r}
-
-clinvar_kcnq2 <- read.delim(file = "ClinVar/KCNQ2.txt", sep = "\t") %>% mutate(gene = "KCNQ2")
-clinvar_kcnb1 <- read.delim(file = "ClinVar/KCNB1.txt", sep = "\t") %>% mutate(gene = "KCNB1")
-clinvar_cacna1i <- read.delim(file = "ClinVar/CACNA1I.txt", sep = "\t") %>% mutate(gene = "CACNA1I")
-clinvar_grin1 <- read.delim(file = "ClinVar/GRIN1.txt", sep = "\t") %>% mutate(gene = "GRIN1")
-clinvar_cln8 <- read.delim(file = "ClinVar/CLN8.txt", sep = "\t") %>% mutate(gene = "CLN8")
-clinvar_scn1a <- read.delim(file = "ClinVar/SCN1A.txt", sep = "\t") %>% mutate(gene = "SCN1A")
-clinvar_scn1b <- read.delim(file = "ClinVar/SCN1B.txt", sep = "\t") %>% mutate(gene = "SCN1B")
-clinvar_clcn3 <- read.delim(file = "ClinVar/CLCN3.txt", sep = "\t") %>% mutate(gene = "CLCN3")
-clinvar_scn2a <- read.delim(file = "ClinVar/SCN2A.txt", sep = "\t") %>% mutate(gene = "SCN2A")
-clinvar_slc2a1 <- read.delim(file = "ClinVar/SLC2A1.txt", sep = "\t") %>% mutate(gene = "SLC2A1")
-clinvar_chrna2 <- read.delim(file = "ClinVar/CHRNA2.txt", sep = "\t") %>% mutate(gene = "CHRNA2")
-clinvar_chrnb2 <- read.delim(file = "ClinVar/CHRNB2.txt", sep = "\t") %>% mutate(gene = "CHRNB2")
-clinvar_slc9a6 <- read.delim(file = "ClinVar/SLC9A6.txt", sep = "\t") %>% mutate(gene = "SLC9A6")
-
-clinvar <- rbind(clinvar_kcnq2, clinvar_kcnb1, clinvar_cacna1i, clinvar_grin1, clinvar_cln8, clinvar_scn1a, clinvar_scn1b, clinvar_clcn3, clinvar_scn2a, clinvar_slc2a1, clinvar_chrna2, clinvar_chrnb2, clinvar_slc9a6)
-
-#temp_name <- clinvar_kcnq2$Name[1]
-#temp_name2 <- strsplit(temp_name," ")[[1]][2]
-#gsub(")","",substr(temp_name2,4,12))
-
-for(x in 1:nrow(clinvar)){
-  clinvar$variant_3aa[x] <- gsub(")","",substr(strsplit(clinvar$Name[x]," ")[[1]][2],4,12))
-}
-clinvar$pos <- as.numeric(gsub("[^0-9]","",clinvar$variant_3aa))
-
-clinvar$clinvar <- ""
-for(x in 1:nrow(clinvar)){
-  if(clinvar$Germline.classification[x] == "Benign"){clinvar$clinvar[x] <- "B/LB"}
-  if(clinvar$Germline.classification[x] == "Benign/Likely benign"){clinvar$clinvar[x] <- "B/LB"}
-  if(clinvar$Germline.classification[x] == "Likely benign"){clinvar$clinvar[x] <- "B/LB"}
-  if(clinvar$Germline.classification[x] == "Pathogenic"){clinvar$clinvar[x] <- "P/LP"}
-  if(clinvar$Germline.classification[x] == "Pathogenic/Likely pathogenic"){clinvar$clinvar[x] <- "P/LP"}
-  if(clinvar$Germline.classification[x] == "Likely pathogenic"){clinvar$clinvar[x] <- "P/LP"}
-  if(clinvar$Germline.classification[x] == "Uncertain significance"){clinvar$clinvar[x] <- "VUS"}
-  if(clinvar$Germline.classification[x] == "Conflicting classifications of pathogenicity"){clinvar$clinvar[x] <- "VUS"}
-  if(clinvar$Germline.classification[x] == "not provided"){clinvar$clinvar[x] <- "VUS"}
-  if(clinvar$Germline.classification[x] == "risk factor"){clinvar$clinvar[x] <- "VUS"}
-}
-
-clinvar_subset <- clinvar %>% filter(gene %in% c("CHRNA2", "CHRNB2", "SLC2A1", "KCNQ2", "GRIN1","SLC9A6"))
-
-ggplot() + 
-  geom_histogram(data = clinvar_subset, aes(x = pos, fill = clinvar), binwidth = 10, color = "black") +
-  facet_grid(rows = vars(gene), scales = "free") +
-  scale_x_continuous(breaks = seq(0,2000,100)) +
-  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) +
-  labs(x = NULL, y = "Count in 10aa window")
-
-```
-
 
